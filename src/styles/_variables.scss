@@ -1,14 +1,15 @@
 :root {
-  --main: #1e40af;
+  --main: #1e3fae;
   --main-bg: #dbeafe;
   --snb-bg: #f7f9fe;
-  --main80: rgba(103, 180, 68, 0.8);
-  --main40: rgba(103, 180, 68, 0.4);
-  --main20: rgba(103, 180, 68, 0.2);
+  --main80: rgba(30, 63, 174, 0.8);
+  --main60: rgba(30, 63, 174, 0.6);
+  --main40: rgba(30, 63, 174, 0.4);
+  --main20: rgba(30, 63, 174, 0.2);
   --second-col: #1e40af;
   --white: #fff;
   --black: #222;
-  --gray: #6b7280;
+  --gray: #6c757d;
 
   --font-b: #505662;
   --font-g: #73787e;
@@ -46,6 +47,7 @@
   --dark-n20: rgba(40, 51, 78, 0.2);
 
   --gray-bg: #f6f7f8;
+  --gray-bg2: #f8f9fa;
 
   --mid-col: #e4f0ff;
   --border1: #eaebed;
@@ -59,6 +61,7 @@
   --red-bg: #fee2e2;
   --purple: #6b21a8;
   --purple-bg: #f9f5ff;
+  --sky: #61dafb;
 
   // 레이아웃
   --user-content-width: 375px;
@@ -71,6 +74,7 @@ $colors: (
   "main80": var(--main80),
   "main10": var(--main10),
   "main40": var(--main40),
+  "main60": var(--main60),
   "main20": var(--main20),
   "main12": var(--main12),
   "main08": var(--main08),
@@ -175,6 +179,7 @@ $colors: (
   "green-bg": var(--green-bg),
   "purple-bg": var(--purple-bg),
   "red-bg": var(--red-bg),
+  "sky": var(--sky),
 );
 $sizes: (
   "size8": 8px,

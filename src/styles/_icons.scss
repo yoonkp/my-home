@@ -5,7 +5,7 @@
   -webkit-mask-position: $bgp;
 }
 
-$icons: ("arrow-right");
+$icons: ("arrow-right", "team", "idea", "growth", "target");
 
 @each $icon in $icons {
   .icon-#{$icon} {

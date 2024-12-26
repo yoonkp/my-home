@@ -14,7 +14,7 @@ export default function Header() {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/about">About</NavLink>
+            <NavLink to="/skill">Skill</NavLink>
           </li>
           <li>
             <NavLink to="/projects">Projects</NavLink>

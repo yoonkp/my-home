@@ -34,8 +34,8 @@ export default function Home() {
           <img src={Hero} alt="Hero Image" />
         </div>
       </section>
-      <Skill />
       <Projects />
+      <Skill />
     </main>
   );
 }

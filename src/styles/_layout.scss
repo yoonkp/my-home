@@ -13,13 +13,13 @@
   width: fit-content;
   align-items: center;
   height: 40px;
-  color: var(--white);
-  background-color: var(--black);
+  color: var(--button-text);
+  background-color: var(--button-bg);
   border-radius: 4px;
   font-weight: 500;
   transition: 0.6s;
   &:visited {
-    color: var(--white);
+    color: var(--button-text);
   }
   &:hover {
     background-color: var(--main);
@@ -30,10 +30,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: fixed;
+  z-index: 999;
   width: 100%;
   height: 64px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.001), rgba(0, 0, 0, 0.001)), var(--white);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.001), rgba(0, 0, 0, 0.001)), var(--background);
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
   nav {
     display: flex;
@@ -44,16 +45,16 @@ header {
       gap: 32px;
       li {
         a {
-          color: var(--font-g);
+          color: var(--secondary-text);
           font-weight: 500;
           &:visited {
-            color: var(--font-g);
+            color: var(--secondary-text);
           }
           &:hover {
-            color: var(--black);
+            color: var(--text-color);
           }
           &.active {
-            color: var(--black);
+            color: var(--text-color);
           }
         }
       }
@@ -63,7 +64,7 @@ header {
 
 footer {
   padding: 28px 32px;
-  background-color: var(--gray-bg2);
+  background-color: var(--background);
   h1 {
     font-size: 24px;
     font-weight: 700;
@@ -71,11 +72,14 @@ footer {
   .social {
     display: flex;
     gap: 24px;
+    svg {
+      color: var(--secondary-text) !important;
+    }
   }
   .copy {
     padding-top: 32px;
-    border-top: 1px solid var(--border);
-    color: var(--gray);
+    border-top: 1px solid var(--border-color);
+    color: var(--secondary-text);
     font-size: 14px;
     text-align: center;
   }
@@ -83,12 +87,12 @@ footer {
 
 .btn-scroll-top {
   position: fixed;
-  bottom: 30px;
-  right: 20px;
+  bottom: 60px;
+  right: 60px;
   width: 40px;
   height: 40px;
   background-color: var(--main);
-  color: var(--white);
+  color: var(--button-text);
   border: none;
   border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -96,14 +100,14 @@ footer {
   font-size: 20px;
 }
 
-// Main
+/* Main Section */
 .main__visual {
   display: flex;
   justify-content: space-between;
   padding: 68px 32px;
   height: calc(100dvh - 64px);
   max-height: 960px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(135deg, #eff6ff 2%, var(--white) 100%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(135deg, var(--main-bg) 2%, var(--background) 100%);
   .text-box {
     display: flex;
     flex: 3;
@@ -113,11 +117,12 @@ footer {
     h2 {
       font-size: 48px;
       font-weight: 700;
+      color: var(--text-color);
     }
     p {
       font-size: 20px;
       font-weight: 400;
-      color: var(--gray);
+      color: var(--secondary-text);
     }
     .btn {
       margin-top: 8px;
@@ -160,8 +165,8 @@ footer {
   .tag {
     padding: 6px 14px;
     border-radius: 200px;
-    background-color: #f1f1f1;
-    color: #333;
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
     font-size: 14px;
     font-weight: 500;
   }
@@ -174,6 +179,7 @@ footer {
     font-size: 36px;
     text-align: center;
     letter-spacing: 0.1em;
+    color: var(--text-color);
   }
   article + article {
     margin-top: 40px;
@@ -186,7 +192,10 @@ footer {
 }
 
 #skill {
-  background-color: var(--gray-bg);
+  background-color: var(--background);
+  .about__wrap {
+    background-color: var(--gray-bg);
+  }
 
   ul {
     display: flex;
@@ -205,11 +214,11 @@ footer {
       flex: 1 1 240px;
       max-width: 300px;
       border-radius: 8px;
-      background: #fff;
+      background: var(--card-bg);
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06);
       transition: transform 0.3s, box-shadow 0.3s;
 
-      &:hover {
+      &.about-item:hover {
         transform: translateY(-10px);
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
       }
@@ -217,10 +226,11 @@ footer {
       h3 {
         font-size: 18px;
         font-weight: 600;
+        color: var(--text-color);
       }
 
       p {
-        color: var(--font-b);
+        color: var(--secondary-text);
         text-align: center;
         word-break: keep-all;
       }
@@ -231,6 +241,9 @@ footer {
         justify-content: center;
         width: 48px;
         height: 48px;
+        i {
+          background-color: var(--text-color);
+        }
 
         svg {
           width: 32px;
@@ -239,17 +252,60 @@ footer {
       }
     }
   }
+  .skill-item {
+    position: relative;
+    gap: 16px;
+    height: 182px;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+      .desc {
+        display: flex;
+        bottom: 0;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  .desc {
+    position: absolute;
+    bottom: -60%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-color: var(--overlay-bg);
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.8;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+
+    p {
+      color: var(--button-text);
+    }
+  }
 }
 
+#project {
+  background-color: var(--background);
+}
 .project__wrap {
   .project__list {
-    padding: 64px 0;
+    padding: 64px 0 0;
     overflow: visible;
   }
   .project {
     &-item {
       border-radius: 8px;
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.001), rgba(0, 0, 0, 0.001)), var(--white);
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.001), rgba(0, 0, 0, 0.001)), var(--card-bg);
       border: 1px solid var(--border1);
       box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -314,9 +370,10 @@ footer {
       h3 {
         font-size: 20px;
         font-weight: 600;
+        color: var(--text-color);
       }
       p {
-        color: var(--font-b);
+        color: var(--secondary-text);
       }
       .tags {
         display: flex;
@@ -325,6 +382,8 @@ footer {
         .tag {
           padding: 3px 10px;
           font-size: 13px;
+          // background-color: var(--tag-bg);
+          // color: var(--tag-text);
         }
       }
     }
@@ -397,45 +456,11 @@ footer {
   }
 }
 
-/* Swiper 버튼 커스텀 */
-/* Swiper 버튼 스타일 */
-.swiper-button-prev,
-.swiper-button-next {
-  position: absolute;
-  top: 50%; /* 중앙 정렬 */
-  z-index: 10; /* 버튼이 다른 요소 위에 표시되도록 */
-  transform: translateY(-50%);
-  background-color: var(--main-bg);
-  color: var(--main);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, background-color 0.3s;
-
-  &:hover {
-    background-color: var(--main-hover-bg);
-  }
-
-  &::after {
-    font-size: 16px;
-    font-weight: bold;
-  }
-
-  &.swiper-button-disabled {
-    opacity: 0.4;
-    pointer-events: none;
-  }
-}
-
 .swiper-pagination {
   bottom: 0;
 }
 .swiper-pagination-bullet {
-  background-color: var(--gray);
+  background-color: var(--secondary-text);
   width: 10px;
   height: 10px;
   border-radius: 40px;
@@ -447,10 +472,42 @@ footer {
   border-radius: 40px;
 }
 
-// .swiper-button-prev {
-//   left: -20px; /* 화살표가 부모 요소 밖으로 나오도록 설정 */
-// }
+.swiper {
+  margin-bottom: 20px;
+}
 
-// .swiper-button-next {
-//   right: -20px;
-// }
+.swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+.swiper-slide {
+  padding: 10px 0;
+}
+
+.swiper-slide:nth-child(odd) {
+  animation: slideY1 3s infinite linear;
+}
+
+.swiper-slide:nth-child(even) {
+  animation: slideY2 3s infinite linear;
+}
+
+@keyframes slideY1 {
+  0%,
+  100% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes slideY2 {
+  0%,
+  100% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

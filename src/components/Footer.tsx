@@ -38,7 +38,7 @@ export default function Footer() {
           <p className="mt16 txt-gray">안녕하세요, UI 개발자 박윤경입니다. 사용자 경험을 중심으로 하는 인터페이스를 만들어갑니다.</p>
         </div>
         <div className="social">
-          <Link to="/" className="txt-border3" style={{ marginRight: "16px" }}>
+          <Link to="/" style={{ marginRight: "16px" }}>
             <FontAwesomeIcon icon={faGithub} style={{ width: "28px", height: "28px", color: "#333" }} />
           </Link>
         </div>

@@ -1,21 +1,22 @@
 :root {
+  /* Primary Colors */
   --main: #1e3fae;
-  --main-bg: #dbeafe;
+  --main-bg: #eff6ff;
   --snb-bg: #f7f9fe;
   --main80: rgba(30, 63, 174, 0.8);
   --main60: rgba(30, 63, 174, 0.6);
   --main40: rgba(30, 63, 174, 0.4);
   --main20: rgba(30, 63, 174, 0.2);
   --second-col: #1e40af;
+
+  /* Neutral Colors */
   --white: #fff;
   --black: #222;
-  --gray: #6c757d;
-
+  --gray: rgb(107, 117, 125);
   --font-b: #505662;
   --font-g: #73787e;
-  --red: #d45649;
 
-  //캘린더 색상
+  /* Calendar Colors */
   --calendar-red: #f31700;
   --calendar-blue: #2049d8;
   --calendar-assignment: rgba(189, 65, 209, 0.08);
@@ -28,159 +29,120 @@
   --calendar-exam-t: #ee7015;
   --calendar-course-t: #8132e7;
 
-  --yellow-darker: #b18209;
-  --yellow-dark: rgb(229, 196, 18);
-  --yellow: #ffd600;
-  --orange: rgb(238, 112, 21);
-  --point-orange: #e33c1b;
-  --error: #ff5a4f;
-  --green: #0c9271;
-  --blue: rgb(15, 114, 229);
-  --org: #00123f;
-
-  --gray-t: #777777;
-  --dark-b: #2049d8;
-  --dark-n: rgb(40, 51, 78);
-  --dark-n90: rgba(40, 51, 78, 0.9);
-  --dark-n80: rgba(40, 51, 78, 0.8);
-  --dark-n60: rgba(40, 51, 78, 0.6);
-  --dark-n20: rgba(40, 51, 78, 0.2);
-
-  --gray-bg: #f6f7f8;
-  --gray-bg2: #f8f9fa;
-
-  --mid-col: #e4f0ff;
-  --border1: #eaebed;
-  --border: #d6d6d6;
-  --border2: #d9dae0;
-  --border3: #9ea6ad;
-
-  --green: #166534;
-  --green-bg: #dcfce7;
+  /* Alert/Status Colors */
+  --red: #d45649;
   --red-dark: #991b1b;
   --red-bg: #fee2e2;
+  --green: #0c9271;
+  --green-bg: #dcfce7;
+  --yellow: #ffd600;
+  --yellow-darker: #b18209;
+  --yellow-dark: rgb(229, 196, 18);
+  --orange: rgb(238, 112, 21);
+  --point-orange: #e33c1b;
+  --blue: rgb(15, 114, 229);
+
+  /* UI/Border Colors */
+  --gray-bg: #f6f7f8;
+  --gray-bg2: #f8f9fa;
+  --border: #d6d6d6;
+  --border1: #eaebed;
+  --border2: #d9dae0;
+  --border3: #9fa6ad;
+
+  /* Dark Theme Colors */
+  --dark-n: rgb(37, 41, 53);
+  --dark-n90: rgba(37, 41, 53, 0.9);
+  --dark-n80: rgba(37, 41, 53, 0.8);
+  --dark-n60: rgba(37, 41, 53, 0.6);
+  --dark-n20: rgba(37, 41, 53, 0.2);
+
+  /* Highlight Colors */
   --purple: #6b21a8;
   --purple-bg: #f9f5ff;
   --sky: #61dafb;
 
-  // 레이아웃
-  --user-content-width: 375px;
+  --background: var(--white);
+  --text-color: var(--black);
+  --secondary-text: var(--gray);
+  --button-bg: var(--black);
+  --button-text: var(--white);
+  --border-color: var(--border);
+  --card-bg: var(--white);
+  --tag-bg: var(--gray-bg);
+  --tag-text: var(--black);
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+}
+
+html[data-theme="dark"] {
+  /* Dark Theme Colors */
+  --background: var(--dark-n);
+  --text-color: var(--border1);
+  --secondary-text: var(--border1);
+  --button-bg: var(--main40);
+  --button-text: var(--border1);
+  --border-color: var(--font-b);
+  --card-bg: #2e374b;
+  --tag-bg: rgba(255, 255, 255, 0.18);
+  --tag-text: var(--border1);
+  --overlay-bg: rgb(107, 117, 125, 0.8);
+  --gray: var(--border1);
+  --gray-bg: rgba(0, 0, 0, 0.07);
+  --main-bg: rgba(0, 0, 0, 0.4);
 }
 
 $colors: (
+  "main": var(--main),
   "main-bg": var(--main-bg),
   "snb-bg": var(--snb-bg),
-  "main": var(--main),
   "main80": var(--main80),
-  "main10": var(--main10),
-  "main40": var(--main40),
   "main60": var(--main60),
+  "main40": var(--main40),
   "main20": var(--main20),
-  "main12": var(--main12),
-  "main08": var(--main08),
-  "main04": var(--main04),
   "second-col": var(--second-col),
   "white": var(--white),
   "black": var(--black),
-  "main-black": var(--main-black),
-  "list-black": var(--list-black),
-  "black50": var(--black50),
-  "black10": var(--black10),
-  "black08": var(--black08),
+  "gray": var(--gray),
   "font-b": var(--font-b),
   "font-g": var(--font-g),
-  "red-dark": var(--red-dark),
-  "red-light": var(--red-light),
+  "calendar-red": var(--calendar-red),
+  "calendar-blue": var(--calendar-blue),
+  "calendar-assignment": var(--calendar-assignment),
+  "calendar-assignment-t": var(--calendar-assignment-t),
+  "calendar-discussion": var(--calendar-discussion),
+  "calendar-discussion-t": var(--calendar-discussion-t),
+  "calendar-survey": var(--calendar-survey),
+  "calendar-survey-t": var(--calendar-survey-t),
+  "calendar-exam": var(--calendar-exam),
+  "calendar-exam-t": var(--calendar-exam-t),
+  "calendar-course-t": var(--calendar-course-t),
   "red": var(--red),
+  "red-dark": var(--red-dark),
+  "red-bg": var(--red-bg),
+  "green": var(--green),
+  "green-bg": var(--green-bg),
+  "yellow": var(--yellow),
   "yellow-darker": var(--yellow-darker),
   "yellow-dark": var(--yellow-dark),
-  "yellow-dark50": var(--yellow-dark50),
-  "yellow-dark30": var(--yellow-dark30),
-  "yellow-dark20": var(--yellow-dark20),
-  "yellow": var(--yellow),
-  "yellow20": var(--yellow20),
-  "yellow08": var(--yellow08),
   "orange": var(--orange),
-  "orange50": var(--orange50),
-  "orange30": var(--orange30),
-  "orange20": var(--orange20),
-  "orange10": var(--orange10),
-  "orange08": var(--orange08),
   "point-orange": var(--point-orange),
-  "green": var(--green),
   "blue": var(--blue),
-  "blue20": var(--blue20),
-  "blue08": var(--blue08),
-  "excel-green-dark": var(--excel-green-dark),
-  "excel-green": var(--excel-green),
-  "excel-green50": var(--excel-green50),
-  "excel-green30": var(--excel-green30),
-  "excel-green20": var(--excel-green20),
-  "excel-green08": var(--excel-green08),
-  "turquoise-dark": var(--turquoise-dark),
-  "turquoise": var(--turquoise),
-  "turquoise50": var(--turquoise50),
-  "turquoise30": var(--turquoise30),
-  "turquoise20": var(--turquoise20),
-  "turquoise08": var(--turquoise08),
-  "purple-dark": var(--purple-dark),
-  "purple": var(--purple),
-  "purple50": var(--purple50),
-  "purple30": var(--purple30),
-  "purple20": var(--purple20),
-  "purple08": var(--purple08),
-  "org": var(--org),
-  "gray": var(--gray),
-  "gray-t": var(--gray-t),
-  "dark-b": var(--dark-b),
+  "gray-bg": var(--gray-bg),
+  "gray-bg2": var(--gray-bg2),
+  "border": var(--border),
+  "border1": var(--border1),
+  "border2": var(--border2),
+  "border3": var(--border3),
   "dark-n": var(--dark-n),
   "dark-n90": var(--dark-n90),
   "dark-n80": var(--dark-n80),
   "dark-n60": var(--dark-n60),
   "dark-n20": var(--dark-n20),
-  "gray-bg": var(--gray-bg),
-  "gray-bg2": var(--gray-bg2),
-  "gray-bg3": var(--gray-bg3),
-  "mid-col": var(--mid-col),
-  "border": var(--border),
-  "border1": var(--border1),
-  "border2": var(--border2),
-  "border3": var(--border3),
-  "border-b": var(--border-b),
-  "border-r": var(--border-r),
-  "opc-blu": var(--opc-blu),
-  "opc-vio": var(--opc-vio),
-  "opc-gre": var(--opc-gre),
-  "opc-red": var(--opc-red),
-  "opc-org": var(--opc-org),
-  "opc-sky": var(--opc-sky),
-  "avatar1": var(--avatar1),
-  "avatar2": var(--avatar2),
-  "avatar3": var(--avatar3),
-  "avatar4": var(--avatar4),
-  "avatar5": var(--avatar5),
-  "avatar6": var(--avatar6),
-  "avatar7": var(--avatar7),
-  "footer": var(--footer),
-  "tab-color": var(--tab-color),
-  "tab-bgc": var(--tab-bgc),
-  "bgc-left": var(--bgc-left),
-  "bgc-right": var(--bgc-right),
-  "calendar-assignment": var(--calendar-assignment),
-  "calendar-assignment-t": var(--calendar-assignment-t),
-  "calendar-survey": var(--calendar-survey),
-  "calendar-survey-t": var(--calendar-survey-t),
-  "calendar-exam": var(--calendar-exam),
-  "calendar-exam-t": var(--calendar-exam-t),
-  "calendar-discussion": var(--calendar-discussion),
-  "calendar-discussion-t": var(--calendar-discussion-t),
-  "calendar-course-t": var(--calendar-course-t),
-  "error": var(--error),
-  "green-bg": var(--green-bg),
+  "purple": var(--purple),
   "purple-bg": var(--purple-bg),
-  "red-bg": var(--red-bg),
   "sky": var(--sky),
 );
+
 $sizes: (
   "size8": 8px,
   "size10": 10px,
@@ -198,11 +160,11 @@ $sizes: (
 
 @each $semantic, $color in $colors {
   .bgc-#{$semantic} {
-    background-color: $color !important;
+    background-color: $color;
   }
 
   .txt-#{$semantic} {
-    color: $color !important;
+    color: $color;
   }
 
   .otl-#{#{$semantic} } {

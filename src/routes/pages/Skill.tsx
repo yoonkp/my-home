@@ -27,85 +27,91 @@ const aboutItems = [
 
 const skillItems = [
   {
+    icon: faProjectDiagram,
+    color: "txt-gray",
+    title: "도메인 퍼블리싱",
+    description: "도메인 모델 기반 확장성 높은 UI 구현",
+  },
+  {
     icon: faHtml5,
     color: "txt-red",
     title: "HTML5",
-    description: "웹 접근성과 SEO 최적화를 위한 시멘틱 마크업 구현",
+    description: "웹 접근성과 SEO를 고려한 시멘틱 마크업",
   },
   {
     icon: faCss3Alt,
     color: "txt-blue",
     title: "CSS3",
-    description: "SCSS, BEM, CSS-in-JS를 활용한 모듈화된 스타일 관리 및 반응형 디자인",
+    description: "SCSS, BEM, 반응형 디자인으로 모듈화된 스타일 관리",
   },
   {
     icon: faJs,
     color: "txt-yellow",
     title: "JavaScript",
-    description: "ES6+ 문법과 비동기 처리로 사용자 친화적인 인터페이스 개발",
+    description: "ES6+와 비동기 처리로 사용자 친화적 UI 개발",
   },
   {
     icon: faReact,
     color: "txt-sky",
     title: "React",
-    description: "함수형 컴포넌트와 Hooks 활용한 상태 관리",
+    description: "함수형 컴포넌트와 Hooks로 상태 관리",
   },
   {
     icon: faGitAlt,
     color: "txt-orange",
     title: "Git",
-    description: "Git을 활용한 협업 및 버전 관리",
+    description: "협업과 버전 관리를 위한 Git 활용",
   },
   {
     icon: faLayerGroup,
     color: "txt-font-b",
     title: "Library",
-    description: "MUI, AG-Grid, Kendo UI, Chart.js와 같은 라이브러리를 활용한 생산적인 UI 개발",
-  },
-  {
-    icon: faProjectDiagram,
-    color: "txt-gray",
-    title: "도메인 주도 퍼블리싱",
-    description: "도메인 모델에 기반하여 효율적이고 확장 가능한 UI 구현",
+    description: "MUI, AG-Grid 등으로 생산성 높은 UI 개발",
   },
   {
     icon: faFigma,
     color: "txt-red",
     title: "Figma",
-    description: "디자인 시스템 구축 및 팀원 간 효율적인 협업을 위한 Figma 활용",
+    description: "디자인 시스템 구축과 협업 효율화",
   },
 ];
 
 export default function Skill() {
   return (
-    <section id="skill" className="inner content">
-      <article className="sub__content about__wrap">
-        <h2 className="title">ABOUT</h2>
-        <ul className="about__list">
-          {aboutItems.map((item, index) => (
-            <li key={index} className="about-item">
-              <div className="icon-wrap">
-                <i className={`${item.iconClass} w32 h32 bgc-black`} />
-              </div>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </li>
-          ))}
-        </ul>
+    <section id="skill" className="">
+      <article className="about__wrap content">
+        <div className="sub__content">
+          <h2 className="title">ABOUT</h2>
+          <ul className="about__list">
+            {aboutItems.map((item, index) => (
+              <li key={index} className="about-item">
+                <div className="icon-wrap">
+                  <i className={`${item.iconClass} w32 h32`} />
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </article>
-      <article className="sub__content skill__wrap">
-        <h2 className="title">SKILLS</h2>
-        <ul className="skill__list">
-          {skillItems.map((item, index) => (
-            <li key={index} className="skill-item">
-              <div className={`icon-wrap ${item.color}`}>
-                <FontAwesomeIcon className="fa-2xl" icon={item.icon} style={{ width: "32px", height: "32px" }} />
-              </div>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </li>
-          ))}
-        </ul>
+      <article className="skill__wrap bgc-main-bg">
+        <div className="sub__content content">
+          <h2 className="title">SKILLS</h2>
+          <ul className="skill__list">
+            {skillItems.map((item, index) => (
+              <li key={index} className="skill-item">
+                <div className={`icon-wrap ${item.color}`}>
+                  <FontAwesomeIcon className="fa-2xl" icon={item.icon} style={{ width: "44px", height: "44px" }} />
+                </div>
+                <h3>{item.title}</h3>
+                <div className="desc">
+                  <p>{item.description}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </article>
     </section>
   );

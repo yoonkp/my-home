@@ -33,6 +33,12 @@ const skillItems = [
     description: "도메인 모델 기반 확장성 높은 UI 구현",
   },
   {
+    icon: faProjectDiagram,
+    color: "txt-gray",
+    title: "도메인 퍼블리싱",
+    description: "도메인 모델 기반 확장성 높은 UI 구현",
+  },
+  {
     icon: faHtml5,
     color: "txt-red",
     title: "HTML5",

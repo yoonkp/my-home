@@ -14,15 +14,15 @@ const router = createBrowserRouter(
       element: <DefaultLayout />,
       children: [
         { path: "/", element: <Home /> },
-        { path: "/skill", element: <Skill /> },
-        { path: "/project", element: <Project /> },
-        { path: "/contact", element: <Contact /> },
-        { path: "/project/:id", element: <ProjectDetail /> },
+        { path: "skill", element: <Skill /> },
+        { path: "project", element: <Project /> },
+        { path: "contact", element: <Contact /> },
+        { path: "project/:id", element: <ProjectDetail /> },
       ],
     },
   ],
   {
-    basename: "/my-home", // GitHub Pages 경로 설정
+    basename: "/my-home", // GitHub Pages 배포 경로 설정
   }
 );
 

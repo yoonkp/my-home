@@ -5,7 +5,7 @@ import Projects from "./Projects";
 
 export default function Home() {
   return (
-    <main className="container">
+    <main id="home" className="container">
       <section className="inner main__visual">
         <div className="text-box">
           <h2>

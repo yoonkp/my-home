@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
@@ -13,26 +12,44 @@ export default function Header() {
     document.documentElement.setAttribute("data-theme", newTheme);
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      // URL 업데이트
+      window.history.pushState(null, "", `/${sectionId}`);
+    }
+  };
+
   return (
     <header className="inner">
       <h1 className="logo">
-        <NavLink to="/" className="logo-link">
+        <Link to="/" className="logo-link">
           박윤경
-        </NavLink>
+        </Link>
       </h1>
       <nav>
         <ul>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <button onClick={() => scrollToSection("home")} className="nav-button">
+              Home
+            </button>
+          </li>
+
+          <li>
+            <button onClick={() => scrollToSection("project")} className="nav-button">
+              Projects
+            </button>
           </li>
           <li>
-            <NavLink to="/skill">Skill</NavLink>
+            <button onClick={() => scrollToSection("skill")} className="nav-button">
+              Skill
+            </button>
           </li>
           <li>
-            <NavLink to="/projects">Projects</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact">Contact</NavLink>
+            <button onClick={() => scrollToSection("contact")} className="nav-button">
+              Contact
+            </button>
           </li>
         </ul>
         <button

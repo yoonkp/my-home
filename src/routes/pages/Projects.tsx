@@ -11,7 +11,7 @@ export default function Projects() {
         <div className="project__list">
           <Swiper
             spaceBetween={30}
-            slidesPerView={3}
+            slidesPerView={4}
             speed={5000}
             loop={true}
             pagination={{ clickable: true }}
@@ -21,7 +21,7 @@ export default function Projects() {
             }}
             modules={[Autoplay]}
             breakpoints={{
-              320: { slidesPerView: 1, spaceBetween: 20 },
+              320: { slidesPerView: 1.3, spaceBetween: 16 },
               768: { slidesPerView: 2, spaceBetween: 30 },
               1024: { slidesPerView: 3, spaceBetween: 30 },
             }}

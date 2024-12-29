@@ -47,7 +47,7 @@ select {
   margin: 0;
   padding: 0;
   font-family: "Pretendard", "돋움", "Apple SD Gothic Neo", Sans-serif;
-  color: var(--black);
+  color: var(--text-color);
   word-break: keep-all;
 }
 ul[role="list"],
@@ -166,21 +166,22 @@ textarea {
   appearance: none;
 }
 select {
-  height: 40px;
+  height: 38px;
   padding: 0 32px 0 11px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   display: inline-block;
   position: relative;
-  background: var(--white) url(/images/icon/select2.svg) no-repeat;
-  background-position: center right 16px;
-  border: 1px solid var(--gray);
+  background: var(--white) url("/assets/images/icon/ico-select.svg") no-repeat;
+  background-position: center right 12px;
+  background-size: 11px;
+  border: 1px solid var(--border-color);
   font-size: 14px;
   cursor: pointer;
-  color: var(--main);
+  color: var(--black);
   border-radius: 0;
-  line-height: 38px;
+  line-height: 36px;
 }
 select::-ms-expand {
   display: none;

@@ -102,7 +102,7 @@ export default function Skill() {
             {skillItems.map((item, index) => (
               <li key={index} className="skill-item">
                 <div className={`icon-wrap ${item.color}`}>
-                  <FontAwesomeIcon className="fa-2xl" icon={item.icon} style={{ width: "44px", height: "44px" }} />
+                  <FontAwesomeIcon className="fa-2xl" icon={item.icon} />
                 </div>
                 <h3>{item.title}</h3>
                 <div className="desc">

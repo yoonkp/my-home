@@ -12,6 +12,15 @@ export default function Header() {
     document.documentElement.setAttribute("data-theme", newTheme);
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      // URL 업데이트
+      window.history.pushState(null, "", `/${sectionId}`);
+    }
+  };
+
   return (
     <header className="inner">
       <h1 className="logo">
@@ -26,6 +35,7 @@ export default function Header() {
               Home
             </Link>
           </li>
+
           <li>
             <Link to="/" state={{ sectionId: "project" }} className="nav-button">
               Projects

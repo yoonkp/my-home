@@ -12,15 +12,6 @@ export default function Header() {
     document.documentElement.setAttribute("data-theme", newTheme);
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-      // URL 업데이트
-      window.history.pushState(null, "", `/${sectionId}`);
-    }
-  };
-
   return (
     <header className="inner">
       <h1 className="logo">
@@ -31,25 +22,24 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <button onClick={() => scrollToSection("home")} className="nav-button">
+            <Link to="/" state={{ sectionId: "home" }} className="nav-button">
               Home
-            </button>
+            </Link>
           </li>
-
           <li>
-            <button onClick={() => scrollToSection("project")} className="nav-button">
+            <Link to="/" state={{ sectionId: "project" }} className="nav-button">
               Projects
-            </button>
+            </Link>
           </li>
           <li>
-            <button onClick={() => scrollToSection("skill")} className="nav-button">
+            <Link to="/" state={{ sectionId: "skill" }} className="nav-button">
               Skill
-            </button>
+            </Link>
           </li>
           <li>
-            <button onClick={() => scrollToSection("contact")} className="nav-button">
+            <Link to="/" state={{ sectionId: "contact" }} className="nav-button">
               Contact
-            </button>
+            </Link>
           </li>
         </ul>
         <button

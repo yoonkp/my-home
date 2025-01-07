@@ -174,14 +174,14 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 68px 32px;
-  height: calc(100dvh - 64px);
+  // height: calc(100dvh - 64px);
   max-height: 960px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(135deg, var(--main-bg) 2%, var(--background) 100%);
   .text-box {
     display: flex;
     flex: 3;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     gap: 24px;
     h2 {
@@ -235,9 +235,8 @@ footer {
       align-items: center;
       justify-content: center;
       max-width: 360px;
-      height: 360px; /* 높이 설정 */
+      height: 360px;
       overflow: hidden;
-
       gap: 8px;
       padding: 20px 16px;
       border-radius: 8px;
@@ -256,6 +255,17 @@ footer {
         align-items: center;
         justify-content: center;
         height: 100%;
+      }
+
+      .project-img {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
 
       .info-item {
@@ -279,7 +289,7 @@ footer {
         display: flex;
         flex-direction: column;
         gap: 8px;
-        padding: 24px 0;
+        padding-top: 24px;
       }
 
       h3 {
@@ -345,6 +355,10 @@ footer {
       height: 100%;
       object-fit: cover;
     }
+  }
+
+  .tags .tag {
+    font-size: 28px;
   }
 
   @media (max-width: $tablet) {
@@ -1196,240 +1210,6 @@ footer {
   }
 }
 
-/* Main Section */
-.main__visual {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 68px 32px;
-  height: calc(100dvh - 64px);
-  max-height: 960px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(135deg, var(--main-bg) 2%, var(--background) 100%);
-  .text-box {
-    display: flex;
-    flex: 3;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    h2 {
-      font-size: 48px;
-      font-weight: 700;
-      color: var(--text-color);
-      text-align: center;
-    }
-    p {
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--secondary-text);
-    }
-    .btn {
-      margin-top: 8px;
-      padding: 8px 32px;
-      height: 52px;
-
-      &:hover {
-        i {
-          animation: moveX 1s infinite ease;
-          @keyframes moveX {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(6px);
-            }
-          }
-        }
-      }
-    }
-  }
-  .visual-wrap {
-    display: flex;
-    gap: 40px;
-    margin-top: 36px;
-    overflow: hidden;
-    max-width: 100%;
-
-    .content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-    }
-
-    .info-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      max-width: 360px;
-      height: 360px; /* 높이 설정 */
-      overflow: hidden;
-
-      gap: 8px;
-      padding: 20px 16px;
-      border-radius: 8px;
-      background: var(--card-bg);
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06);
-
-      .swiper {
-        margin-bottom: 0;
-        width: 100%;
-        height: 100%;
-      }
-
-      .swiper-slide {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-      }
-
-      .info-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        h3 {
-          font-size: 18px;
-          font-weight: 600;
-          color: var(--text-color);
-        }
-        p {
-          color: var(--secondary-text);
-          font-size: 14px;
-        }
-      }
-
-      .info-txt {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        padding: 24px 0;
-      }
-
-      h3 {
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--text-color);
-      }
-      p {
-        color: var(--secondary-text);
-      }
-    }
-  }
-  .dialog-list {
-    display: flex;
-    gap: 96px;
-    li {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      & + li .icon::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: -64px;
-        width: 32px;
-        height: 2px;
-        background-color: var(--border);
-        transform: translateY(-50%);
-      }
-    }
-    .icon {
-      position: relative;
-      width: 64px;
-      height: 64px;
-      background-color: var(--button-bg);
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      svg {
-        width: 24px;
-        height: 24px;
-        color: var(--background);
-      }
-    }
-    p {
-      font-size: 14px;
-    }
-  }
-
-  .hero-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 2;
-    width: 100%;
-    max-width: 500px;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  @media (max-width: $tablet) {
-    & {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      &.inner {
-        padding: 5dvh 16px;
-        height: auto;
-        max-height: inherit;
-      }
-      .text-box {
-        width: 100%;
-        gap: 20px;
-        h2 {
-          font-size: 1.6rem;
-        }
-
-        p {
-          font-size: 1rem;
-        }
-        .btn {
-          padding: 8px 16px;
-          height: 40px;
-        }
-      }
-    }
-    .hero-img {
-      max-height: 80vw;
-      overflow: hidden;
-    }
-    .dialog-list {
-      gap: 48px;
-      li {
-        & + li .icon::before {
-          left: -40px;
-          width: 24px;
-          height: 1px;
-        }
-      }
-      .icon {
-        width: 40px;
-        height: 40px;
-        svg {
-          width: 16px;
-          height: 16px;
-        }
-      }
-    }
-  }
-
-  @media (max-width: $mobile) {
-  }
-}
-
 .tags {
   display: flex;
   gap: 12px;
@@ -2140,6 +1920,141 @@ footer {
           }
         }
       }
+    }
+  }
+}
+
+.main-visual {
+  text-align: center;
+  padding: 3rem;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+
+  &__title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  &__clusters {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+}
+
+.word-cluster {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 300px;
+
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #495057;
+  }
+
+  &__words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+}
+
+.interactive-word {
+  font-size: 1.2rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: #17a2b8;
+    color: #ffffff;
+  }
+
+  &.hovered {
+    font-weight: bold;
+    transform: scale(1.1);
+  }
+}
+
+#tech-graph-graph-wrapper {
+  width: 100%;
+  height: 600px; /* 명시적인 높이를 설정 */
+  position: relative; /* 다른 요소와의 관계를 명확히 하기 위해 */
+  display: flex; /* 자식 요소 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible; /* 요소가 숨겨지지 않도록 설정 */
+  }
+
+  g,
+  path {
+    pointer-events: all; /* 상호작용 허용 */
+  }
+  g {
+    transform-origin: center; /* 중심을 기준으로 위치 설정 */
+    transition: transform 0.3s ease-in-out; /* 애니메이션 효과 */
+  }
+
+  path.link {
+    stroke-width: 2px;
+    stroke: #cccccc;
+    transition: stroke 0.3s, opacity 0.3s;
+  }
+
+  path.link:hover {
+    stroke: #17a2b8;
+    opacity: 1;
+  }
+}
+.main-graph {
+  text-align: center;
+  margin: 2rem auto;
+  width: 90%;
+  height: auto;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #495057;
+  }
+
+  .node {
+    cursor: pointer;
+    transition: transform 0.3s;
+    &:hover {
+      // transform: scale(1.2);
+      fill: #ff5733;
+    }
+  }
+
+  .link {
+    stroke-width: 2px;
+    transition: stroke 0.3s;
+    &:hover {
+      stroke: #17a2b8;
+    }
+  }
+}
+
+.main__graph {
+  .graph-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    height: 70dvh;
+    svg {
+      width: 100%;
+      height: 100%;
+      overflow: hidden; // 그래프가 영역 밖으로 넘어가지 않도록 설정
     }
   }
 }

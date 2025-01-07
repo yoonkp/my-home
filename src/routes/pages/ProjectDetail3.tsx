@@ -4,7 +4,7 @@ import img1 from "/assets/images/ai-1.jpg";
 export default function ProjectDetail3() {
   const projectList = [
     {
-      title: "삼성 E&A - 대시보드1",
+      title: "HD 현대 Iot",
       description: [
         "삼성엔지니어링의 주요 프로젝트 데이터를 실시간으로 관리하는 대시보드로, 대규모 데이터를 효율적으로 시각화할 수 있도록 설계되었습니다.",
         "이 대시보드는 React와 Material-UI를 사용하여 구축되었으며, AG-Grid를 활용해 대용량 데이터를 빠르고 직관적으로 처리할 수 있습니다.",
@@ -13,7 +13,7 @@ export default function ProjectDetail3() {
       skills: ["React", "Material-UI", "AG-Grid"],
     },
     {
-      title: "삼성 E&A - 대시보드2",
+      title: "삼성 E&A AG-Grid 사례",
       description: ["삼성 E&A 대시보드2는 프로젝트의 진행 상황을 실시간으로 모니터링할 수 있는 시스템입니다.", "이 프로젝트는 TypeScript를 사용하여 코드의 안정성과 유지보수성을 높였습니다."],
       skills: ["React", "TypeScript"],
     },
@@ -61,7 +61,7 @@ export default function ProjectDetail3() {
           <article className="detail__content flex-2">
             <div className="content-area ">
               <div className="title-area tc py32">
-                <h2>넥스트리 & 삼성E&A</h2>
+                <h2>넥스트리 & 고객사 프로젝트</h2>
                 <p>각 항목을 클릭하여 자세한 내용을 확인하세요.</p>
               </div>
               <ul className="project__list">

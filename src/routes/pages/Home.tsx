@@ -1,4 +1,5 @@
-import Skill from "./Skill";
+import About from "./About";
+import Skill from "./Skill2-3";
 import Projects from "./Projects";
 
 import MainVisualSection from "./MainVisualSection";
@@ -29,8 +30,9 @@ export default function Home() {
 
       <MainGraph />
       <MainVisualSection />
-      {/* <Projects /> */}
+      <About />
       <Skill />
+      <Projects />
     </main>
   );
 }

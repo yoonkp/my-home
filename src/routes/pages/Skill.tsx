@@ -68,33 +68,17 @@ const skillItems = [
     title: "Library",
     description: "MUI, AG-Grid 등으로 생산성 높은 UI 개발",
   },
-  // {
-  //   icon: faFigma,
-  //   color: "txt-red",
-  //   title: "Figma",
-  //   description: "디자인 시스템 구축과 협업 효율화",
-  // },
+  {
+    icon: faFigma,
+    color: "txt-red",
+    title: "Figma",
+    description: "디자인 시스템 구축과 협업 효율화",
+  },
 ];
 
 export default function Skill() {
   return (
     <section id="skill" className="">
-      <article className="about__wrap content">
-        <div className="sub__content">
-          <h2 className="title">ABOUT</h2>
-          <ul className="about__list">
-            {aboutItems.map((item, index) => (
-              <li key={index} className="about-item">
-                <div className="icon-wrap">
-                  <i className={`${item.iconClass} w32 h32`} />
-                </div>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </article>
       <article className="skill__wrap bgc-main-bg">
         <div className=" content">
           {/* sub__content */}

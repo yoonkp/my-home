@@ -5,6 +5,12 @@ $mobile-s: 375px;
 /* General Reset */
 main {
   background-color: var(--background);
+  margin-bottom: 280px;
+  @media (max-width: $mobile) {
+    & {
+      margin-bottom: 240px;
+    }
+  }
 }
 .inner {
   padding: 0 32px;
@@ -16,28 +22,22 @@ main {
 }
 
 /* Button Styles */
-/* Button Styles */
 .btn {
   padding: 8px 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  justify-content: center;
-  width: fit-content;
   height: 40px;
   color: var(--button-text);
   background-color: var(--button-bg);
-  color: var(--button-text);
-  background-color: var(--button-bg);
   border-radius: 4px;
-  font-weight: 500;
-  transition: 0.6s;
   font-weight: 500;
   transition: background-color 0.3s ease, color 0.3s ease;
 
   &:hover {
     background-color: var(--main);
+    color: var(--white);
   }
 
   &:visited {
@@ -46,53 +46,214 @@ main {
 }
 
 /* Header Styles */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+// header {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   position: fixed;
+//   top: 0;
+//   z-index: 999;
+//   width: 100%;
+//   height: 64px;
+//   background: var(--background);
+//   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+
+//   nav {
+//     display: flex;
+//     align-items: center;
+//     gap: 32px;
+
+//     ul {
+//       display: flex;
+//       gap: 32px;
+
+//       li {
+//         a {
+//           color: var(--secondary-text);
+//           font-weight: 500;
+//           transition: color 0.3s ease;
+
+//           &:hover,
+//           &.active,
+//           &:visited {
+//             color: var(--text-color);
+//           }
+//         }
+//       }
+//     }
+//   }
+//   .theme-toggle {
+//     padding: 8px;
+//     border-radius: 50%;
+//     background: var(--button-bg);
+//     color: var(--button-text);
+//     border: none;
+//     cursor: pointer;
+//     z-index: 50;
+//     width: 32px;
+//     height: 32px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+//     transition: 0.3s;
+//   }
+//   @media (max-width: $mobile) {
+//     gap: 16px;
+//   }
+// }
+
+/* 모바일 기준 해상도 */
+$mobile: 768px;
+
+/* 헤더 스타일 */
+.header {
   position: fixed;
   top: 0;
   z-index: 999;
   width: 100%;
   height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
   background: var(--background);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
 
-  nav {
-    display: flex;
-    align-items: center;
-    gap: 32px;
+  .logo {
+    .logo-link {
+      color: var(--text-color);
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.3s ease;
 
-    ul {
-      display: flex;
-      gap: 32px;
-
-      li {
-        a {
-          color: var(--secondary-text);
-          font-weight: 500;
-          transition: color 0.3s ease;
-
-          &:hover,
-          &.active,
-          &:visited {
-            color: var(--text-color);
-          }
-        }
+      &:hover,
+      &:focus {
+        color: var(--primary-color);
       }
     }
   }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  &.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: var(--background);
+    padding: 1rem 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.menu-list {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    .nav-button {
+      color: var(--secondary-text);
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover,
+      &:focus {
+        color: var(--text-color);
+      }
+    }
+  }
+}
+
+.theme-toggle {
+  padding: 8px;
+  border-radius: 50%;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+}
+
+.resume-btn {
+  background: var(--button-bg);
+  color: var(--white);
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+
+  &:hover,
+  &:focus {
+    background: var(--main);
+    color: var(--white);
+  }
+}
+
+.hamburger-menu {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-color);
+
   @media (max-width: $mobile) {
+    display: block;
+  }
+}
+
+@media (max-width: $mobile) {
+  .navigation {
+    display: none;
+  }
+
+  .navigation.open {
+    display: flex;
+  }
+
+  .menu-list {
+    flex-direction: column;
     gap: 16px;
+    width: 100%;
+    text-align: center;
   }
 }
 
 /* Footer Styles */
 footer {
-  position: relative;
-  z-index: 1;
-  padding: 28px 32px;
-  background-color: var(--background);
+  position: fixed;
+  bottom: 0;
+  z-index: -1;
+  padding: 48px 40px 20px;
+  width: 100%;
+  height: 280px;
+  background-color: var(--main-bg);
+  border-radius: 80px 80px 0 0;
 
   h1 {
     font-size: 24px;
@@ -122,7 +283,9 @@ footer {
 
   @media (max-width: $mobile) {
     & {
-      padding: 24px 16px 48px;
+      padding: 28px 24px 48px;
+      border-radius: 40px 40px 0 0;
+      height: 240px;
     }
     .pb32 {
       padding-bottom: 16px;
@@ -1130,58 +1293,6 @@ footer {
   }
 }
 
-/* Footer Styles */
-footer {
-  position: relative;
-  z-index: 1;
-  padding: 28px 32px;
-  background-color: var(--background);
-
-  h1 {
-    font-size: 24px;
-    font-weight: 700;
-  }
-
-  .social {
-    display: flex;
-    margin-right: 20px;
-    gap: 24px;
-
-    svg {
-      width: 28px;
-      height: 28px;
-      color: var(--secondary-text);
-    }
-  }
-
-  .copy {
-    margin-top: 32px;
-    padding-top: 32px;
-    border-top: 1px solid var(--border-color);
-    text-align: center;
-    font-size: 14px;
-    color: var(--secondary-text);
-  }
-
-  @media (max-width: $mobile) {
-    & {
-      padding: 24px 16px 48px;
-    }
-    .pb32 {
-      padding-bottom: 16px;
-    }
-    h1 {
-      font-size: 18px;
-    }
-
-    .copy {
-      margin-top: 16px;
-      padding-top: 16px;
-      font-size: 0.7857rem;
-    }
-  }
-}
-
 /* Scroll Top Button */
 .btn-scroll-top {
   position: fixed;
@@ -1983,24 +2094,24 @@ footer {
 
 #tech-graph-graph-wrapper {
   width: 100%;
-  height: 600px; /* 명시적인 높이를 설정 */
-  position: relative; /* 다른 요소와의 관계를 명확히 하기 위해 */
-  display: flex; /* 자식 요소 정렬 */
-  justify-content: center; /* 가로 중앙 정렬 */
-  align-items: center; /* 세로 중앙 정렬 */
+  height: 600px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   svg {
     width: 100%;
     height: 100%;
-    overflow: visible; /* 요소가 숨겨지지 않도록 설정 */
+    overflow: visible;
   }
 
   g,
   path {
-    pointer-events: all; /* 상호작용 허용 */
+    pointer-events: all;
   }
   g {
-    transform-origin: center; /* 중심을 기준으로 위치 설정 */
-    transition: transform 0.3s ease-in-out; /* 애니메이션 효과 */
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
   }
 
   path.link {
@@ -2054,34 +2165,31 @@ footer {
     svg {
       width: 100%;
       height: 100%;
-      overflow: hidden; // 그래프가 영역 밖으로 넘어가지 않도록 설정
+      overflow: hidden;
     }
   }
 }
 
 .skill-section {
-  /* 화면이 충분히 길어야 스크롤이 발생 -> 애니메이션이 진행됨 */
-  min-height: 300vh;
+  min-height: 200dvh;
   padding: 4rem 0;
   background: var(--main);
 
   .sticky-container {
     position: sticky;
-    top: 20%;
+    top: 15dvw;
     overflow: hidden;
   }
 
-  /* 반응형: 예시 */
   @media (max-width: 768px) {
-    min-height: 600vh;
+    min-height: 600dvh;
   }
 
-  /* 공통 행 스타일 */
   .skill-row {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 4rem;
+    gap: 1.5dvw;
+    margin-bottom: 6dvw;
 
     /* flip 3D 영역 */
     .layer-item {
@@ -2110,7 +2218,7 @@ footer {
         backface-visibility: hidden;
         border-radius: 12px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        background: #fff;
+        background: var(--card-bg);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -2144,11 +2252,47 @@ footer {
   }
 
   .row-left {
-    /* 첫째 줄 */
     margin-top: 2rem;
   }
   .row-right {
-    /* 둘째 줄 */
     margin-top: 2rem;
+  }
+}
+
+.hero {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+
+  .hero-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-title {
+    font-size: 4.5vw;
+    font-weight: 800;
+    color: var(--white);
+    text-transform: uppercase;
+    transform-origin: center;
+  }
+
+  .hero-subtitle {
+    font-size: 2.5vw;
+    margin-top: 20px;
+    color: var(--white);
+    font-style: italic;
+    font-weight: 500;
+    transform-origin: center;
   }
 }

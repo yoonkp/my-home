@@ -39,35 +39,38 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer id="contact">
-      <div className="flex justifyBetween pb32" style={{ alignItems: "center" }}>
-        <div className="info">
-          <h1 className="logo" style={{ fontSize: "24px", fontWeight: "bold" }}>
-            <NavLink to="/" className="logo-link">
-              박윤경
-            </NavLink>
-          </h1>
-          <p className="mt16 txt-gray">안녕하세요, UI 개발자 박윤경입니다. 사용자 경험을 중심으로 하는 인터페이스를 만들어갑니다.</p>
+    <>
+      <div id="contact-anchor" />
+      <footer id="contact">
+        <div className="flex justifyBetween pb32" style={{ alignItems: "center" }}>
+          <div className="info">
+            <h1 className="logo" style={{ fontSize: "24px", fontWeight: "bold" }}>
+              <NavLink to="/" className="logo-link">
+                박윤경
+              </NavLink>
+            </h1>
+            <p className="mt16 txt-gray">안녕하세요, UI 개발자 박윤경입니다. 사용자 경험을 중심으로 하는 인터페이스를 만들어갑니다.</p>
+          </div>
+          <div className="social">
+            <Link to="/">
+              <FontAwesomeIcon icon={faGithub} />
+            </Link>
+          </div>
         </div>
-        <div className="social">
-          <Link to="/">
-            <FontAwesomeIcon icon={faGithub} />
-          </Link>
-        </div>
-      </div>
-      <p className="copy">© 2025 Park Yoon Kyung. All rights reserved.</p>
-      {showScrollTop && (
-        <button
-          className="btn-scroll-top"
-          onClick={scrollToTop}
-          aria-label="Scroll to Top"
-          style={{
-            bottom: isAboveFooter ? "8dvw" : "4.5dvw",
-          }}
-        >
-          ↑
-        </button>
-      )}
-    </footer>
+        <p className="copy">© 2025 Park Yoon Kyung. All rights reserved.</p>
+        {showScrollTop && (
+          <button
+            className="btn-scroll-top"
+            onClick={scrollToTop}
+            aria-label="Scroll to Top"
+            style={{
+              bottom: isAboveFooter ? "8dvw" : "4.5dvw",
+            }}
+          >
+            ↑
+          </button>
+        )}
+      </footer>
+    </>
   );
 }

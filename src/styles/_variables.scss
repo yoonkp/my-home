@@ -7,7 +7,7 @@
   --main60: rgba(30, 63, 174, 0.6);
   --main40: rgba(30, 63, 174, 0.4);
   --main20: rgba(30, 63, 174, 0.2);
-  --second-col: #1e40af;
+  --second-col: #17a2b8;
 
   /* Neutral Colors */
   --white: #fff;
@@ -133,6 +133,11 @@ $colors: (
   "sky": var(--sky),
 );
 
+$primary-color: #1e3fae;
+$secondary-color: #17a2b8;
+$box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+$box-shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.2);
+
 $sizes: (
   "size8": 8px,
   "size10": 10px,
@@ -147,6 +152,10 @@ $sizes: (
   "size22": 22px,
   "size24": 24px,
 );
+
+$tablet: 960px;
+$mobile: 768px;
+$mobile-s: 375px;
 
 @each $semantic, $color in $colors {
   .bgc-#{$semantic} {

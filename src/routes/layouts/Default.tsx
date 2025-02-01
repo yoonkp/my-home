@@ -1,29 +1,19 @@
-import { useEffect } from "react";
-import { Outlet, ScrollRestoration, useLocation } from "react-router-dom";
+// DefaultLayout.tsx
+import { Outlet } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import ScrollToSection from "../../components/ScrollToSection";
 import Hero from "../pages/Hero";
 
 export default function DefaultLayout() {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.state && location.state.sectionId) {
-      const section = document.getElementById(location.state.sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-  }, [location.state]);
-
   return (
     <div>
       <Header />
-      <ScrollRestoration />
+      {/* ScrollRestoration을 사용하면 커스텀 스크롤과 충돌할 수 있으므로 필요에 따라 제거하거나 위치를 조정하세요 */}
+      {/* <ScrollRestoration /> */}
+      <ScrollToSection />
       <Hero />
-      <>
-        <Outlet />
-      </>
+      <Outlet />
       <Footer />
     </div>
   );

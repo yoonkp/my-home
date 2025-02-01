@@ -3,19 +3,14 @@ import Skill from "./Skill2-3";
 import Projects from "./Projects";
 
 import MainVisualSection from "./MainVisualSection";
-import MainGraph from "./MainGraph4-8";
-import Visual from "./Visual";
+import MainGraph from "./MainGraph5-1";
 
 export default function Home() {
   return (
     <main id="home" className="container">
       <section className="inner main__visual">
         <div className="text-box">
-          <h2>
-            안녕하세요,&nbsp;
-            {/* <br /> */}
-            UI 개발자 박윤경입니다.
-          </h2>
+          <h2>안녕하세요,&nbsp; UI 개발자 박윤경입니다.</h2>
           <ul className="tags">
             <li className="tag">#UI/UI전문가</li>
             <li className="tag">#소통전문가</li>
@@ -30,9 +25,9 @@ export default function Home() {
 
       <MainGraph />
       <MainVisualSection />
+      <Projects />
       <About />
       <Skill />
-      <Projects />
     </main>
   );
 }

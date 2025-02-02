@@ -291,7 +291,7 @@
     font-size: 1.4em;
     margin-bottom: 1rem;
     color: var(--text-color);
-    border-bottom: 2px solid lighten($primary-color, 40%);
+    border-bottom: 2px solid var(--second-col);
     padding-bottom: 0.5rem;
   }
 

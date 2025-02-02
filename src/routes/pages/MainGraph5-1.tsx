@@ -209,11 +209,17 @@ const MainGraph: React.FC = () => {
     if (!svgRef.current || !containerRef.current) return;
 
     const container = containerRef.current;
+
+    // ★ 수정: 모바일 Safari 주소창 이슈 해결을 위해 초기 창 높이를 고정값(px)으로 계산
+    // 예: 전체 창 높이의 64%로 고정 (원하는 값으로 조절 가능)
+    const fixedHeight = window.innerHeight * 0.64;
+    container.style.height = `${fixedHeight}px`;
+
     const svg = d3.select(svgRef.current);
     const containerWidth = container.clientWidth;
-    const containerHeight = container.clientHeight;
+    const containerHeight = container.clientHeight; // 고정된 height 사용
 
-    // container의 width가 768px 이하이면 초기 확대값을 0.5, 아니면 0.7로 설정
+    // container의 width가 768px 이하이면 초기 확대값을 0.5, 아니면 0.8로 설정
     const initialScale = containerWidth <= 768 ? 0.5 : 0.8;
 
     // 툴팁 생성
@@ -239,12 +245,31 @@ const MainGraph: React.FC = () => {
 
     // 줌 설정
     let currentTransform = d3.zoomIdentity;
+    // 터치 제스처의 시작 좌표를 저장할 변수
+    let touchStartX = 0,
+      touchStartY = 0;
+
     const zoom = d3
       .zoom<SVGSVGElement, unknown>()
-      // 스크롤(휠) 및 다중 터치(핀치) 확대/축소 방지
+      // ★ 수정: 스크롤(휠) 및 다중 터치(핀치) 확대/축소 방지 및
+      // 터치 이동이 수직(스크롤)인 경우엔 zoom 동작 무시
       .filter((event) => {
         if (event.type === "wheel") return false;
-        if (event.type === "touchmove" && (event as TouchEvent).touches?.length > 1) return false;
+        // 터치 시작 시 시작 좌표 기록
+        if (event.type === "touchstart" && event.touches && event.touches.length === 1) {
+          touchStartX = event.touches[0].clientX;
+          touchStartY = event.touches[0].clientY;
+          return true;
+        }
+        // 터치 이동 시, 수직 이동이 주로 발생하면 스크롤로 판단하고 zoom 무시
+        if (event.type === "touchmove" && event.touches && event.touches.length === 1) {
+          const dx = event.touches[0].clientX - touchStartX;
+          const dy = event.touches[0].clientY - touchStartY;
+          if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 5) {
+            return false;
+          }
+        }
+        if (event.type === "touchmove" && event.touches && event.touches.length > 1) return false;
         return true;
       })
       .scaleExtent([initialScale, 5])
@@ -254,6 +279,7 @@ const MainGraph: React.FC = () => {
         tooltip.style("visibility", "hidden");
       });
 
+    // 초기 transform은 컨테이너 중앙에 위치하도록
     const initialTransform = d3.zoomIdentity.translate(containerWidth / 2, containerHeight / 2).scale(initialScale);
     svg.call(zoom as any).call(zoom.transform, initialTransform);
     currentTransform = initialTransform;
@@ -444,9 +470,9 @@ const MainGraph: React.FC = () => {
     <div className="main__graph">
       <div
         ref={containerRef}
+        // ★ 수정: 인라인 스타일 대신 컨테이너의 초기 높이를 JS에서 설정했으므로, width만 지정합니다.
         style={{
           width: "100%",
-          height: "64dvh",
           position: "relative",
           overflow: "hidden",
         }}

@@ -4,6 +4,7 @@ import EffectModal from "./modal/EffectModal";
 import SnowEffect from "./effect/SnowEffect";
 import CloudEffect from "./effect/CloudEffect";
 import WaveEffect from "./effect/WaveEffect";
+import { Link } from "react-router-dom";
 
 type ModalKey = "EffectModal1" | "EffectModal2" | "EffectModal3";
 
@@ -19,14 +20,21 @@ type ModalMapping = {
 export default function ProjectDetail() {
   const [modals, setModals] = useState<ModalKey | null>(null);
   const [activeEffect, setActiveEffect] = useState<ModalKey | null>(null);
+  // 효과 영역(open/close) 상태 관리
+  const [effectOpen, setEffectOpen] = useState(false);
 
   const openModal = (modalName: ModalKey) => {
     setModals(modalName);
     setActiveEffect(modalName);
+    setEffectOpen((prev) => !prev);
   };
 
   const closeModal = () => {
     setModals(null);
+  };
+
+  const toggleEffectWrap = () => {
+    setEffectOpen((prev) => !prev);
   };
 
   const modalMapping: ModalMapping = {
@@ -41,17 +49,17 @@ export default function ProjectDetail() {
         <section className="detail__wrap">
           <article className="detail__content">
             <div className="title-area">
-              <h2>프로젝트</h2>
+              <h2>LUSH 프로젝트</h2>
               <select name="prd" id="prd">
                 <option value="project1">러쉬 디지털 데모</option>
-                <option value="project2">프로젝트2</option>
+                {/* <option value="project2">프로젝트2</option> */}
               </select>
             </div>
             <figure className="thumb">
-              <img src={img1} alt="LUSH 디지털 데모 시연 영상" />
+              <img src={img1} alt="LUSH 디지털 데모 이미지" />
             </figure>
           </article>
-          <article className="effect__wrap">
+          <article className={`effect__wrap ${effectOpen ? "open" : ""}`}>
             <div className="effect__content">
               <ul className="effect-list mini-scroll">
                 {Object.keys(modalMapping).map((key) => (
@@ -62,13 +70,28 @@ export default function ProjectDetail() {
               </ul>
             </div>
           </article>
+          <button className={`m-effect-button ${effectOpen ? "close" : ""}`} aria-label="효과 버튼" onClick={toggleEffectWrap}></button>
         </section>
         <section className="detail__info">
           <div className="title-area">
-            <h2>프로젝트</h2>
+            <h2>러쉬 디지털 데모</h2>
           </div>
           <div className="txt-area">
-            <p>러쉬에서 만든 디지털 데모 입니다.</p>
+            <div>
+              <strong>- 링크: </strong>
+              <Link className="prd-link" to="https://www.lush.co.kr/m/digital-demo/main" target="_blank" rel="noreferrer">
+                디지털 데모 (링크 바로가기)
+              </Link>
+            </div>
+            <p>
+              <strong>기여도: </strong>100%
+            </p>
+            <p>아이패드 가로모드 적응형 디지털 데모 퍼블리싱</p>
+            <div className="tags small color">
+              <span className="tag">HTML</span>
+              <span className="tag">CSS</span>
+              <span className="tag">JavaScript</span>
+            </div>
           </div>
         </section>
       </section>

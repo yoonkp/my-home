@@ -10,31 +10,23 @@ const projects = [
     description: "Kendo UI를 활용한 LMS 시스템",
     tags: ["React", "TypeScript", "Kendo UI"],
     imageClass: "img-1",
-    link: "/project-detail2",
+    link: "/project-detail/2",
   },
-  // {
-  //   id: 2,
-  //   title: "우즈벡 대학교 학사관리 PC",
-  //   description: "Kendo UI를 활용한 LMS 시스템",
-  //   tags: ["React", "TypeScript", "Kendo UI"],
-  //   imageClass: "img-2",
-  //   link: "/project-detail2",
-  // },
   {
-    id: 3,
+    id: 2,
     title: "삼성E&A 대시보드",
     description: "React를 활용한 대시보드 시스템",
     tags: ["React", "MUI", "AG-Grid"],
     imageClass: "img-3",
-    link: "/project-detail3",
+    link: "/project-detail/3",
   },
   {
-    id: 4,
+    id: 3,
     title: "LUSH Fresh Sale App",
     description: "Next.js를 활용한 쇼핑몰 앱",
     tags: ["Next", "React", "Tailwind"],
     imageClass: "img-4",
-    link: "/project-detail",
+    link: "/project-detail/1",
   },
 ];
 
@@ -69,7 +61,7 @@ export default function Projects() {
                   <div className="project-info">
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
-                    <div className="tags">
+                    <div className="tags small color">
                       {project.tags.map((tag, index) => (
                         <span className="tag" key={index}>
                           {tag}

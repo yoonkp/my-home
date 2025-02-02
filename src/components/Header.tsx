@@ -14,10 +14,10 @@ const Header: React.FC = () => {
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
+    setMenuOpen(!menuOpen);
     document.documentElement.setAttribute("data-theme", newTheme);
   };
 
-  /** 모바일 메뉴 토글 함수 */
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };

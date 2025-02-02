@@ -17,14 +17,25 @@ export default function EffectModal({ title, closeModal, EffectComponent }: Effe
     const modal = modalRef.current;
     if (modal) {
       const rect = modal.getBoundingClientRect();
-      setPosition({
-        x: window.innerWidth / 2 - rect.width / 2,
-        y: window.innerHeight / 2 - rect.height / 2,
-      });
+      const isMobile = window.innerWidth <= 768; // 모바일 여부 판단
+
+      if (isMobile) {
+        setPosition({
+          x: 0,
+          y: 0,
+        });
+      } else {
+        setPosition({
+          x: window.innerWidth / 2 - rect.width / 2,
+          y: window.innerHeight / 2 - rect.height / 2,
+        });
+      }
     }
   }, []);
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (window.innerWidth <= 768) return; // 모바일에서는 드래그 비활성화
+
     setDragging(true);
     setOffset({
       x: e.clientX - position.x,
@@ -60,16 +71,20 @@ export default function EffectModal({ title, closeModal, EffectComponent }: Effe
       ref={modalRef}
       className="modal-effect"
       style={{
-        top: `${position.y}px`,
-        left: `${position.x}px`,
-        cursor: "grab",
+        position: window.innerWidth <= 768 ? "fixed" : "absolute",
+        top: window.innerWidth <= 768 ? "50%" : `${position.y}px`,
+        left: window.innerWidth <= 768 ? "50%" : `${position.x}px`,
+        transform: window.innerWidth <= 768 ? "translate(-50%, -50%)" : "none",
+        cursor: window.innerWidth <= 768 ? "default" : "grab",
+        width: window.innerWidth <= 768 ? "90%" : "auto",
+        maxWidth: "500px",
       }}
       onMouseDown={handleMouseDown}
     >
       <div className="modal-top">
         <h2 className="title">{title}</h2>
         <button onClick={closeModal} className="btn-close">
-          <i className="icon-close bgc-white"></i>
+          <i className="icon-close"></i>
         </button>
       </div>
       <div className="modal-cont">

@@ -52,7 +52,7 @@ export default function Footer() {
             <p className="mt16 txt-gray">안녕하세요, UI 개발자 박윤경입니다. 사용자 경험을 중심으로 하는 인터페이스를 만들어갑니다.</p>
           </div>
           <div className="social">
-            <Link to="/">
+            <Link to="https://github.com/yoonkp" target="_blank" aria-label="GitHub">
               <FontAwesomeIcon icon={faGithub} />
             </Link>
           </div>

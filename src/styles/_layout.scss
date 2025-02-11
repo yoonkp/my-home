@@ -728,6 +728,11 @@ footer {
 // Project Detail Section
 // --------------------------------------------------
 #project-detail {
+  > section {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+  }
   .title-area {
     display: flex;
     align-items: center;
@@ -736,11 +741,15 @@ footer {
   }
 
   .detail__wrap {
+    position: relative;
     flex: 1;
+    select {
+      border-color: var(--purple);
+    }
   }
 
   .effect__wrap {
-    position: fixed;
+    position: absolute;
     right: 16px;
     top: 50%;
     display: flex;
@@ -827,8 +836,131 @@ footer {
       }
     }
 
+    .visual__wrap {
+      // position: relative;
+      display: flex;
+      gap: 24px;
+    }
+
     .thumb {
       margin-top: 24px;
+      max-width: 80%;
+    }
+
+    .thumb-buttons {
+      // position: absolute;
+      // top: 60px;
+      // right: 10vw;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 80px;
+
+      .thumb-button {
+        position: relative;
+        padding: 10px 15px;
+        background: var(--white);
+        color: rgba(0, 0, 0, 0.15);
+        font-size: 14px;
+        font-weight: bold;
+        // border: 1px solid #000;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        width: 110px;
+        height: 40px;
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: -18px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 0;
+          height: 0;
+          border-top: 20px solid transparent;
+          border-bottom: 20px solid transparent;
+          border-left: 20px solid rgba(0, 0, 0, 0.15);
+        }
+        .small {
+          margin-left: 2px;
+          font-size: 10px;
+        }
+      }
+
+      .thumb-button:nth-child(1) {
+        color: #1c1c1c;
+        font-size: 20px;
+        border: 1px solid #1c1c1c;
+      }
+      .thumb-button:nth-child(2) {
+        font-size: 20px;
+        .red {
+          color: rgb(241, 10, 45);
+        }
+        .gray {
+          margin-left: 3px;
+          color: var(--font-g);
+        }
+        border: 1px solid #f00;
+      }
+      .thumb-button:nth-child(3) {
+        color: var(--text-color);
+        border: 1px solid rgba(255, 50, 155, 0.5);
+        .small {
+          color: #ff329b;
+        }
+      }
+      .thumb-button:nth-child(1)::after {
+        border-left: 20px solid #1c1c1c;
+      }
+      .thumb-button:nth-child(2)::after {
+        border-left: 20px solid #f00;
+      }
+      .thumb-button:nth-child(3)::after {
+        border-left: 20px solid #ff329b;
+      }
+    }
+
+    // 반응형 적용 (모바일)
+    @media (max-width: $mobile) {
+      .thumb-buttons {
+        margin-top: 60px;
+
+        .thumb-button {
+          padding: 0;
+          width: 0;
+          height: 24px;
+          font-size: 0;
+          border: none;
+
+          &::after {
+            right: -12px;
+            border-left: 12px solid rgba(0, 0, 0, 0.15);
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+          }
+        }
+        .thumb-button:nth-child(1),
+        .thumb-button:nth-child(2),
+        .thumb-button:nth-child(3) {
+          font-size: 0;
+          & > span {
+            display: none;
+          }
+        }
+        .thumb-button:nth-child(1)::after,
+        .thumb-button:nth-child(2)::after,
+        .thumb-button:nth-child(3)::after {
+          right: -12px;
+          border-left-width: 12px;
+          border-top: 12px solid transparent;
+          border-bottom: 12px solid transparent;
+        }
+      }
     }
   }
 }
@@ -1017,6 +1149,8 @@ footer {
 
   .modal-top {
     padding: 12px 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px 8px 0 0;
   }
 
   .modal-cont {
@@ -1033,6 +1167,7 @@ footer {
   border-bottom: 1px solid var(--border);
 
   .title {
+    color: var(--white);
     font-size: 18px;
   }
 
@@ -1047,7 +1182,7 @@ footer {
     i {
       width: 16px;
       height: 16px;
-      background-color: var(--button-bg);
+      background-color: var(--white);
     }
   }
 }

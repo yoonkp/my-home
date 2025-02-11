@@ -2,11 +2,12 @@ import { createBrowserRouter, RouterProvider, useParams } from "react-router-dom
 import Home from "./pages/Home";
 import Skill from "./pages/Skill";
 import Project from "./pages/Projects";
-import ProjectDetail from "./pages/ProjectDetail";
+import ProjectDetail from "./pages/ProjectDetail1";
 import ProjectDetail2 from "./pages/ProjectDetail2";
 import ProjectDetail3 from "./pages/ProjectDetail3";
 import Contact from "../components/Footer";
 import DefaultLayout from "./layouts/Default";
+import DetailHero from "./pages/DetailHero1";
 
 function ProjectDetailWrapper() {
   const { id } = useParams();
@@ -33,6 +34,7 @@ const router = createBrowserRouter(
         { path: "project", element: <Project /> },
         { path: "contact", element: <Contact /> },
         { path: "project-detail/:id", element: <ProjectDetailWrapper /> },
+        { path: "detail-hero", element: <DetailHero /> },
       ],
     },
   ],

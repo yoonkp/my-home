@@ -38,7 +38,7 @@ export default function Projects() {
         <div className="project__list">
           <Swiper
             spaceBetween={30}
-            slidesPerView={4}
+            slidesPerView={3}
             speed={6000}
             loop={true}
             pagination={{ clickable: true }}

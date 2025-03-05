@@ -1,0 +1,27 @@
+name: Force Deploy
+
+on:
+  push:
+    branches:
+      - main # main 브랜치에 push되면 실행
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Force Push to Deploy Branch
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git checkout --orphan temp_branch
+          git add -A
+          git commit -m "Forced deployment"
+          git branch -D main
+          git branch -m main
+          git push origin main --force

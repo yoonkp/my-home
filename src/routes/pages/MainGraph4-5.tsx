@@ -133,7 +133,7 @@ function multiSectorTwoStageForce(
   force2 = 200 // 2단계 힘
 ) {
   let nodes: ExtendedGraphNode[];
-  let groupInfos: { group: number; midAngle: number; cx: number; cy: number }[] = [];
+  const groupInfos: { group: number; midAngle: number; cx: number; cy: number }[] = [];
 
   function force(alpha: number) {
     const eff1 = force1 * alpha;

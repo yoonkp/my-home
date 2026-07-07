@@ -2,14 +2,15 @@ import js from "@eslint/js";
 import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
-import typescript from "@typescript-eslint/eslint-plugin";
-import typescriptParser from "@typescript-eslint/parser";
+import tseslint from "typescript-eslint";
 
 export default [
   {
     // 무시할 파일 설정
     ignores: ["dist"],
   },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
   {
     // 파일과 언어 옵션 설정
     files: ["**/*.{ts,tsx}"],
@@ -17,21 +18,17 @@ export default [
       ecmaVersion: "latest", // 최신 ECMAScript 지원
       sourceType: "module",
       globals: globals.browser,
-      parser: typescriptParser,
+      parser: tseslint.parser,
       parserOptions: {
         ecmaVersion: "latest",
         sourceType: "module",
-        project: ["./tsconfig.json", "./tsconfig.node.json"], // TypeScript 프로젝트 설정
-        tsconfigRootDir: __dirname,
       },
     },
     plugins: {
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
-      "@typescript-eslint": typescript,
+      "@typescript-eslint": tseslint.plugin,
     },
-    // 확장 설정
-    extends: [js.configs.recommended, ...typescript.configs.recommended],
     rules: {
       "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
       "@typescript-eslint/no-explicit-any": "off",
@@ -45,15 +42,6 @@ export default [
           extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
         },
       },
-    },
-  },
-  {
-    // 추가 parserOptions 설정
-    parserOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
-      project: ["./tsconfig.json", "./tsconfig.node.json"],
-      tsconfigRootDir: __dirname,
     },
   },
 ];

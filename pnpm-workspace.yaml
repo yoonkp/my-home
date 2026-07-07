@@ -1,0 +1,7 @@
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+overrides:
+  '@babel/runtime': 7.29.7
+  flatted: 3.4.2
+  picomatch@^2.3.1: 2.3.2
